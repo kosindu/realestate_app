@@ -8,11 +8,13 @@ const Layout = ({ children }) => (
     <Head>
       <title>Real Estate</title>
     </Head>
-    <Box maxWidth="1280px" m="auto">
+    <Box bg="green.50">
       <header>
         <Navbar />
       </header>
-      <main>{children}</main>
+      <Box maxWidth="1280px" m="auto">
+        <main>{children}</main>
+      </Box>
       <footer>
         <Footer />
       </footer>

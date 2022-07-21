@@ -46,18 +46,39 @@ const PropertyDetails = ({
         p="1"
         justifyContent="space-between"
         w="250"
-        color="blue.200"
+        color="green.400"
       >
-        {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft{' '}
-        <BsGridFill />
+        <Flex alignItems="center">
+          <FaBed />
+          <Text marginLeft="2">{rooms} Bedrooms</Text>
+        </Flex>
+        |
+        <Flex alignItems="center">
+          <FaBath />
+          <Text marginLeft="2">{baths} Bathrooms</Text>
+        </Flex>
+        |
+        <Flex alignItems="center">
+          <BsGridFill />
+          <Text marginLeft="2">{millify(area)} sqft</Text>
+        </Flex>
       </Flex>
       <Box marginTop="2">
         <Text fontSize="lg" marginBottom="2" fontWeight="bold">
           {title}
         </Text>
-        <Text lineHeight="2" color="gray.600">
-          {description}
-        </Text>
+        <Text
+          lineHeight="2"
+          color="gray.600"
+          dangerouslySetInnerHTML={{ __html: description }}
+          bg="white"
+          p="10"
+          paddingTop="5"
+          paddingBottom="5"
+          borderRadius="10"
+          border="1px"
+          borderColor="green.200"
+        ></Text>
       </Box>
       <Flex
         flexWrap="wrap"
@@ -108,13 +129,15 @@ const PropertyDetails = ({
             item.amenities.map((amenity) => (
               <Text
                 key={amenity.text}
-                fontWeight="bold"
-                color="blue.400"
+                fontWeight="medium"
+                color="green.400"
                 fontSize="l"
                 p="2"
-                bg="gray.200"
+                bg="white"
                 m="1"
                 borderRadius="5"
+                border="1px"
+                borderColor="green.400"
               >
                 {amenity.text}
               </Text>

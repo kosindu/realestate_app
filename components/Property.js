@@ -25,48 +25,60 @@ const Property = ({
   <Link href={`/property/${externalID}`} passHref>
     <Flex
       flexWrap="wrap"
-      w="420px"
-      p="5"
+      w="280px"
+      m="5"
       paddingTop="0"
       justifyContent="flex-start"
       cursor="pointer"
+      borderRadius="10"
+      border="1px"
+      borderColor="green.100"
+      overflow="hidden"
+      bg="white"
     >
       <Box>
         <Image
           src={coverPhoto ? coverPhoto.url : DefaultImage}
-          width={400}
-          height={260}
+          width={280}
+          height={160}
           alt="house"
         />
       </Box>
-      <Box w="full">
-        <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
+      <Box w="full" p="4" paddingTop="0">
+        <Flex alignItems="center" justifyContent="space-between">
           <Flex alignItems="center">
             <Box paddingRight="3" color="green.400">
               {isVerified && <GoVerified />}
             </Box>
-            <Text fontWeight="bold" fontSize="lg">
+            <Text fontWeight="bold" fontSize="m">
               AED {millify(price)}
               {rentFrequency && `/${rentFrequency}`}
             </Text>
           </Flex>
           <Box>
-            <Avatar size="sm" src={agency?.logo?.url} />
+            <Avatar size="sm" src={agency?.logo?.url} border="2px" />
           </Box>
         </Flex>
-        <Flex
-          alignItems="center"
-          p="1"
-          justifyContent="space-between"
-          w="250"
-          color="blue.200"
+        <Text
+          fontSize="sm"
+          color="green.800"
+          paddingTop="2"
+          paddingBottom="3"
+          borderBottom="1px"
+          borderColor="green.100"
         >
-          {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft{' '}
-          <BsGridFill />
-        </Flex>
-        <Text fontSize="lg">
           {title.length > 30 ? `${title.substring(0, 30)}...` : title}
         </Text>
+        <Flex
+          alignItems="center"
+          paddingTop="2"
+          justifyContent="space-between"
+          color="green.500"
+          fontSize="xs"
+        >
+          <FaBed /> {rooms} Beds | <FaBath /> {baths} Bathrooms |
+          <BsGridFill /> {millify(area)} sqft
+        </Flex>
       </Box>
     </Flex>
   </Link>

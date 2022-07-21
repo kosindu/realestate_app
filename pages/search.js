@@ -14,12 +14,15 @@ const Search = ({ properties }) => {
   return (
     <Box>
       <Flex
+        marginTop="5"
         cursor="pointer"
-        bg="gray.100"
-        borderBottom="1px"
-        borderColor="gray.200"
+        color="white"
+        bg="green.400"
+        borderBottom="2px"
+        borderColor="green.600"
+        borderRadius="5"
         p="2"
-        fontWeight="black"
+        fontWeight="medium"
         fontSize="lg"
         justifyContent="center"
         alignItems="center"
@@ -30,7 +33,9 @@ const Search = ({ properties }) => {
       </Flex>
       {searchFilters && <SearchFilters />}
       <Text fontSize="2xl" p="4" fontWeight="bold">
-        Properties {router.query.purpose}
+        Properties{' '}
+        {router.query.purpose &&
+          router.query.purpose.replace(/[^a-zA-Z ]/g, ' ')}
       </Text>
       <Flex flexWrap="wrap">
         {properties.map((property) => (

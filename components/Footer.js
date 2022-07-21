@@ -7,8 +7,9 @@ const Footer = () => (
     color="gray.600"
     borderTop="1px"
     borderColor="gray.100"
+    bg="white"
   >
-    2022 Realtor, Inc.
+    2022 Aparto, Inc.
   </Box>
 );
 

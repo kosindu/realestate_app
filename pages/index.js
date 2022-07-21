@@ -15,22 +15,43 @@ const Banner = ({
   buttonText,
 }) => (
   <Flex flexWrap="wrap" justifyContent="center" alignItems="center" m="10">
-    <Image src={imageUrl} width={500} height={300} alt="banner" />
-    <Box p="5">
-      <Text color="gray.500" fontSize="sm" fontWeight="medium">
+    <Box
+      h="300"
+      borderRadius="10px"
+      overflow="hidden"
+      border="1px"
+      borderColor="green.200"
+    >
+      <Image src={imageUrl} width="500" height="300" alt="banner" />
+    </Box>
+    <Box
+      p="6"
+      bg="white"
+      borderRadius="0 10px 10px 0"
+      border="1px"
+      borderLeft="0"
+      borderColor="green.200"
+    >
+      <Text fontSize="sm" fontWeight="medium">
         {purpose}
       </Text>
-      <Text fontSize="3xl" fontWeight="medium">
+      <Text color="green.300" fontSize="2xl" fontWeight="medium">
         {title1}
         <br />
         {title2}
       </Text>
-      <Text color="gray.700" fontSize="lg" paddingTop="3" paddingBottom="3">
+      <Text color="gray.500" fontSize="m" paddingTop="3" paddingBottom="3">
         {desc1}
         <br />
         {desc2}
       </Text>
-      <Button fontSize="xl">
+      <Button
+        fontSize="l"
+        bg="green.100"
+        color="green.800"
+        border="1px"
+        borderColor="green.800"
+      >
         <Link href={linkName}>{buttonText}</Link>
       </Button>
     </Box>
@@ -74,10 +95,10 @@ const Home = ({ propertiesForRent, propertiesForSale }) => (
 
 export async function getStaticProps() {
   const propertyForSale = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
+    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=8`
   );
   const propertyForRent = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`
+    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=8`
   );
 
   return {
